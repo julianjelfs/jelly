@@ -41,7 +41,15 @@ const images = {
     kat: require("../assets/kat.png"),
     logo: require("../assets/formidable-logo.svg"),
     markdown: require("../assets/markdown.png"),
-    angular: require("../assets/angular-hero.png")
+    angular: require("../assets/angular-hero.png"),
+    trlogo: require("../assets/tr.svg"),
+    dnatalogo: require("../assets/dnata.svg"),
+    emirateslogo: require("../assets/emirates.png"),
+    multi: require("../assets/multi.png"),
+    thisisfine: require("../assets/thisisfine.gif"),
+    beach1: require("../assets/beach1.jpg"),
+    palm: require("../assets/palm.jpg"),
+    castle: require("../assets/castle.jpg"),
 };
 
 preloader(images);
@@ -51,7 +59,7 @@ const theme = createTheme({
     //secondary: "#005eb8",
     //tertiary: "#009dd9"
 }, {
-    primary: 'Courier New'
+    //primary: 'Courier New'
 });
 
 export default class Presentation extends React.Component {
@@ -79,6 +87,8 @@ export default class Presentation extends React.Component {
                     <Slide
                         transition={["slide"]}
                         bgColor="black"
+                        bgDarken={0.75}
+                        bgImage={images.palm}
                         notes="So when I joined, we had something of a marvelous monolith on the front end in the form of a standard .net web forms site with the usual smattering of jQuery and another smattering of backbone, and a mobile site written using jQuery mobile. My task was to rewrite the mobile website. At this time the back end architecture was moving towards a microservice architecture since maintaining a proper separation of concerns and reasonable service boundaries is tough in a monolith and it is all too easy to end up with a kind of dependency spaghetti. ">
                         <Heading size={1} caps lineHeight={1} textColor="primary">
                             Where we were
@@ -103,7 +113,7 @@ export default class Presentation extends React.Component {
                            bgImage={images.angular}
                            transition={["slide"]}
                            bgColor="black"
-                           notes="This leant itself well to a SPA website talking directly to the microservice layer so that is what we built using the angular js which was all the rage and didn’t seem like a bad thing. ">
+                           notes="This leant itself well to a SPA website talking directly to the microservice layer so that is what we built using the angular js which was all the rage and didn’t seem like a bad thing. And so we successfully released a new mobile site and we had modern tooling and modern build process and everything was reasonably simple and we were very productive. Wouldn’t it be nice if we could just serve the desktop site off this code base too. Mobile first baby. So it grew and grew and grew. Wouldn’t it be nice if we could also serve a responsive site for a very different brand off the same code base? And it grew and it grew and it grew. Wouldn't it be nice if we could support travel agents and sales staff too.">
                         <Heading size={2} caps fit textColor="primary" textFont="primary">
                             Then what?
                         </Heading>
@@ -111,29 +121,107 @@ export default class Presentation extends React.Component {
                             Can you guess?
                         </Text>
                     </Slide>
-                    <Slide transition={["zoom", "fade"]} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
-                        <CodePane
-                            lang="jsx"
-                            source={require("raw!../assets/deck.example")}
-                            margin="20px auto"
-                        />
-                    </Slide>
-                    <Slide transition={["slide"]} bgImage={images.city.replace("/", "")} bgDarken={0.75}>
+{/*                    <Slide transition={["zoom", "fade"]}
+                           bgColor="black"
+                           bgDarken={0.75}
+                           bgImage={images.castle}
+                           notes="And so we successfully released a new mobile site and we had modern tooling and modern build process and everything was reasonably simple and we were very productive. Wouldn’t it be nice if we could just serve the desktop site off this code base too. Mobile first baby. So it grew and grew and grew. Wouldn’t it be nice if we could also serve a responsive site for a very different brand off the same code base? And it grew and it grew and it grew.">
+                        <Heading size={1} caps lineHeight={1} textColor="primary">
+                            This is fine ...
+                        </Heading>
+                        <div className="logos">
+                            <div className="multi logo">
+                                <Appear fid="1">
+                                    <Image width="600px" src={images.multi}/>
+                                </Appear>
+                            </div>
+                            <div className="tr-logo logo">
+                                <Appear fid="2">
+                                    <Image src={images.trlogo}/>
+                                </Appear>
+                            </div>
+                            <div className="dnata-logo logo">
+                                <Appear fid="3">
+                                    <Image width="700px" src={images.dnatalogo} />
+                                </Appear>
+                            </div>
+                            <div className="ekh-logo logo">
+                                <Appear fid="4">
+                                    <Image width="250px" src={images.emirateslogo} />
+                                </Appear>
+                            </div>
+                            <div className="thisisfine logo">
+                                <Appear fid="5">
+                                    <Image width="800px" src={images.thisisfine} />
+                                </Appear>
+                            </div>
+                        </div>
+                    </Slide>*/}
+                    <Slide transition={["slide"]} bgImage={images.beach1.replace("/", "")}
+                           bgDarken={0.75}
+                            notes="All running from the same code base.
+
+This causes a number of problems which I’m happy to talk about but today I want to focus on just one aspect - javascript.
+
+The end result is complexity and so what I really want to talk about it what we have learned about complexity and the tools and the languages that can make it worse and the tools and languages that can make it better.
+
+So, just to be clear, I will be expressing some opinions here that you may not agree with. This is OK. Half of my team don’t even agree with me. I will also probably be exaggerating to make point and poking some fun to make a point. Nothing as successful and popular as the stack we are using is completely without merit - I’m just interested in ways to improve.   ">
+                        <Heading size={1} caps fit textColor="primary">
+                            Current Landscape
+                        </Heading>
                         <Appear fid="1">
-                            <Heading size={1} caps fit textColor="primary">
-                                Full Width
-                            </Heading>
+                            <Text size={1} textColor="tertiary">
+                                Travel Republic +
+                            </Text>
                         </Appear>
                         <Appear fid="2">
-                            <Heading size={1} caps fit textColor="tertiary">
-                                Adjustable Darkness
-                            </Heading>
+                            <Text size={1} textColor="tertiary">
+                                Travel Republic Mobile +
+                            </Text>
                         </Appear>
                         <Appear fid="3">
+                            <Text size={1} textColor="tertiary">
+                                dnata Travel +
+                            </Text>
+                        </Appear>
+                        <Appear fid="4">
+                            <Text size={1} textColor="tertiary">
+                                dnata Travel Mobile +
+                            </Text>
+                        </Appear>
+                        <Appear fid="5">
+                            <Text size={1} textColor="tertiary">
+                                dnata Agents +
+                            </Text>
+                        </Appear>
+                        <Appear fid="6">
+                            <Text size={1} textColor="tertiary">
+                                dnata Staff Travel +
+                            </Text>
+                        </Appear>
+                        <Appear fid="7">
+                            <Text size={1} textColor="tertiary">
+                                Emirates Holidays (Responsive) +
+                            </Text>
+                        </Appear>
+                        <Appear fid="8">
+                            <Text size={1} textColor="tertiary">
+                                Emirates Agents (Responsive) =
+                            </Text>
+                        </Appear>
+                        <Appear fid="9">
                             <Heading size={1} caps fit textColor="primary">
-                                Background Imagery
+                                Complexity
                             </Heading>
                         </Appear>
+                    </Slide>
+                    <Slide transition={["slide"]} bgImage={images.castle.replace("/", "")}
+                           bgDarken={0.75}
+                           notes="This is a question that I sometimes ask people in interviews. It tells me whether they are learners (and also whether they can handle weird questions). I like to work with learners. Learners will be prepared to change their opinions on things and they will evolve and they will naturally have an answer to this question. Do you have any answers? I have a few. ">
+                        <BlockQuote>
+                            <Quote>Tell me something that you used to fervently believe that you now think is nonsense</Quote>
+                            <Cite>A sometimes interview question</Cite>
+                        </BlockQuote>
                     </Slide>
                     <Slide transition={["zoom", "fade"]} bgColor="primary">
                         <Heading caps fit>Flexible Layouts</Heading>
