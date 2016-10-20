@@ -22,6 +22,8 @@ import {
     Text
 } from "spectacle";
 
+import Batman from "./Batman"
+
 // Import image preloader util
 import preloader from "spectacle/lib/utils/preloader";
 
@@ -50,6 +52,7 @@ const images = {
     beach1: require("../assets/beach1.jpg"),
     palm: require("../assets/palm.jpg"),
     castle: require("../assets/castle.jpg"),
+    poo: require("../assets/poo.png"),
 };
 
 preloader(images);
@@ -220,29 +223,62 @@ So, just to be clear, I will be expressing some opinions here that you may not a
                            notes="This is a question that I sometimes ask people in interviews. It tells me whether they are learners (and also whether they can handle weird questions). I like to work with learners. Learners will be prepared to change their opinions on things and they will evolve and they will naturally have an answer to this question. Do you have any answers? I have a few. ">
                         <BlockQuote>
                             <Quote>Tell me something that you used to fervently believe that you now think is nonsense</Quote>
-                            <Cite>A sometimes interview question</Cite>
+                            <Cite>Me: sometimes in interviews</Cite>
                         </BlockQuote>
                     </Slide>
-                    <Slide transition={["zoom", "fade"]} bgColor="primary">
-                        <Heading caps fit>Flexible Layouts</Heading>
-                        <Layout>
-                            <Fill>
-                                <Heading size={4} caps textColor="secondary" bgColor="white" margin={10}>
-                                    Left
-                                </Heading>
-                            </Fill>
-                            <Fill>
-                                <Heading size={4} caps textColor="secondary" bgColor="white" margin={10}>
-                                    Right
-                                </Heading>
-                            </Fill>
-                        </Layout>
+                    <Slide transition={["zoom", "fade"]}
+                           notes="You might detect a pattern here. You might be sensing that I have some reservations about javascript and some reservations about angular. So this is the negative section of the talk where we bitch about things for a while, but I promise we will bring it back and then we will all be happy. Unless you are already happy in which case I am going to make you sad.  Let’s talk about the language, then let’s talk about angular a bit and then let’s see if there’s anything we can do about it"
+                           bgColor="primary">
+                        <Heading caps fit>I have some answers ...</Heading>
+                        <List>
+                            <Appear fid="1">
+                                <ListItem>
+                                    <Text size={1} textColor="black">
+                                        Javascript is a great programming language
+                                    </Text>
+                                </ListItem>
+                            </Appear>
+                            <Appear fid="2">
+                                <ListItem>
+                                    <Text size={1} textColor="black">
+                                        Angular 1 is a great web dev framework
+                                    </Text>
+                                </ListItem>
+                            </Appear>
+                            <Appear fid="3">
+                                <ListItem>
+                                    <Text size={1} textColor="black">
+                                        Angular 1 is an ok web dev framework
+                                    </Text>
+                                </ListItem>
+                            </Appear>
+                            <Appear fid="4">
+                                <ListItem>
+                                    <Text size={1} textColor="black">
+                                        OOP is the best way to handle complexity
+                                    </Text>
+                                </ListItem>
+                            </Appear>
+                            <Appear fid="5">
+                                <ListItem>
+                                    <Text size={1} textColor="black">
+                                        People who say "isomorphic" are smarter than me
+                                    </Text>
+                                </ListItem>
+                            </Appear>
+                            <Appear fid="6">
+                                <ListItem>
+                                    <Text size={1} textColor="black">
+                                        People who say "functor" are full of <img width="40px" src={images.poo} />
+                                    </Text>
+                                </ListItem>
+                            </Appear>
+                        </List>
                     </Slide>
-                    <Slide transition={["slide"]} bgColor="black">
-                        <BlockQuote>
-                            <Quote>Wonderfully formatted quotes</Quote>
-                            <Cite>Ken Wheeler</Cite>
-                        </BlockQuote>
+                    <Slide transition={["slide"]}
+                           notes="Has anyone seen the talk WAT? By Gary Bernhart? It's a really entertaining talk and this is one of many punchlines. But also this is really not so funny. Javascript has all these funny idiosyncrasies that we all know and laugh about. But that might be called a mistake in execution, the question is, is it a fundamentally bad language."
+                           bgColor="black">
+                        <Batman />
                     </Slide>
                     <Slide transition={["spin", "zoom"]} bgColor="tertiary">
                         <Heading caps fit size={1} textColor="primary">
