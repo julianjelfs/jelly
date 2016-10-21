@@ -23,6 +23,7 @@ import {
 } from "spectacle";
 
 import Batman from "./Batman"
+import Pokedog from "./pokedog"
 
 // Import image preloader util
 import preloader from "spectacle/lib/utils/preloader";
@@ -52,7 +53,18 @@ const images = {
     beach1: require("../assets/beach1.jpg"),
     palm: require("../assets/palm.jpg"),
     castle: require("../assets/castle.jpg"),
+    sunset: require("../assets/sunset.jpg"),
     poo: require("../assets/poo.png"),
+    pokemon: {
+        jynx: require('../assets/jynx.jpg'),
+        gyrados: require('../assets/gyarados.jpg'),
+        charizard: require('../assets/charizard.jpg'),
+    },
+    dogs : {
+        dog1: require('../assets/dog1.jpg'),
+        dog2: require('../assets/dog2.jpg'),
+        dog3: require('../assets/dog3.jpg')
+    }
 };
 
 preloader(images);
@@ -279,6 +291,13 @@ So, just to be clear, I will be expressing some opinions here that you may not a
                            notes="Has anyone seen the talk WAT? By Gary Bernhart? It's a really entertaining talk and this is one of many punchlines. But also this is really not so funny. Javascript has all these funny idiosyncrasies that we all know and laugh about. But that might be called a mistake in execution, the question is, is it a fundamentally bad language."
                            bgColor="black">
                         <Batman />
+                    </Slide>
+                    <Slide transition={["zoom"]}
+                           notes="This is an example of why side effects are bad"
+                           bgImage={images.sunset.replace("/", "")}
+                           bgDarken={0.75}
+                           bgColor="black">
+                        <Pokedog pokemon={images.pokemon.charizard} dog={images.dogs.dog1} />
                     </Slide>
                     <Slide transition={["spin", "zoom"]} bgColor="tertiary">
                         <Heading caps fit size={1} textColor="primary">
