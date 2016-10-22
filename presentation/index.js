@@ -326,7 +326,22 @@ So, just to be clear, I will be expressing some opinions here that you may not a
                     <Slide transition={["slide"]}
                            notes=""
                            bgColor="primary">
-                        <CodePane source={require('raw!../assets/badfunction')} lang="javascript" />
+                        <Heading caps fit size={1} textColor="white">
+                            no comment ...
+                        </Heading>
+                        <CodePane source={require('raw!../assets/badfunction')} lang="javascript" textSize={25} />
+                    </Slide>
+                    <Slide transition={["none"]}
+                           notes="Everything is a Maybe but we have no Maybe. Null checks are required nearly everywhere. They bloat the code and lead to accidental complexity or they are omitted and lead to runtime errors. Nulls are so evil that Tony Hoare famously called it his billion dollar mistake. That was 30 years ago - what’s the price tag now.
+
+It’s worse than that because not only is everything nullable, but also nothing is type checked. So a property may not contain a value at all or it may contain a value that is the wrong type and therefore does not behave the way you expect it to. say.hello() ain’t going to work if is a number.
+
+Remember, the rug can be pulled from beneath your feet at any time by code that you know nothing about. (rug pull gif?)
+
+ So what is the root of all evil? Is it money? Is it premature optimisation? I think it might be “this”. So I’m not a huge OO fan and I’m pretty suspicious of “this” in any language these days because `this` tends to mean side-effects. But in JS the problem is particularly acute because we can never really be sure what `this` means. Has it been intentionally or accidentally manipulated by `call` or `apply` or `bind`? But even if we know exactly what `this` meant, it would still be evil. Why?
+"
+                           bgColor="primary">
+                        <CodePane source={require('raw!../assets/badfunctioncommented')} lang="javascript" textSize={25} />
                     </Slide>
                     <Slide transition={["zoom"]}
                            notes="This is an example of why side effects are bad"

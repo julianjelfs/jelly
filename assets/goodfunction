@@ -1,0 +1,11 @@
+type alias User =
+    { address: Address }
+
+type alias Address =
+    { postCode: String }
+
+//updateAddress: User -> String -> Task Err User
+function updatePostCode(user, postCode) {
+    user.address.postCode = postCode;
+    return this.saveUser(user);
+}

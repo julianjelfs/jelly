@@ -1,0 +1,19 @@
+//what does it return
+function updateAddress(postCode) {
+    //what type is this parameter?
+    //is the parameter defined?
+    //what does `this` refer to?
+    //is user null?
+    //does user have an address property?
+    //is address null?
+    //does address have a postCode property?
+    //does the type of the postCode property match
+    //the type of the input param?
+    this.user.address.postCode = postCode;
+
+    //what the hell is this?
+    //does it return anything?
+    //it has no parameters so I bet it does *something*
+    //can it fail?
+    this.saveUser();
+}
