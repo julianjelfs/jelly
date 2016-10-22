@@ -56,6 +56,7 @@ const images = {
     sunset: require("../assets/sunset.jpg"),
     poo: require("../assets/poo.png"),
     reaper: require("../assets/reaper.jpg"),
+    down: require("../assets/down.png"),
     pokemon: {
         jynx: require('../assets/jynx.jpg'),
         gyrados: require('../assets/gyarados.jpg'),
@@ -332,19 +333,84 @@ So, just to be clear, I will be expressing some opinions here that you may not a
                         <CodePane source={require('raw!../assets/badfunction')} lang="javascript" textSize={25} />
                     </Slide>
                     <Slide transition={["none"]}
-                           notes="Everything is a Maybe but we have no Maybe. Null checks are required nearly everywhere. They bloat the code and lead to accidental complexity or they are omitted and lead to runtime errors. Nulls are so evil that Tony Hoare famously called it his billion dollar mistake. That was 30 years ago - what’s the price tag now.
+                           notes="So there are such a lot of questions here. You might just say that this is simply bad code, and it is.
+                           But so much of this is simply down to the language itself. Everything is nullable but we have no way
+                           to handle it. If you put null checks everywhere that you should your code would be completely unreadable.
+                           So we ommit them and settle for runtime errors instead. Nulls are so evil that Tony Hoare famously called
+                           them his billion dollar mistake. That was 30 years ago - what’s the price tag now.
 
-It’s worse than that because not only is everything nullable, but also nothing is type checked. So a property may not contain a value at all or it may contain a value that is the wrong type and therefore does not behave the way you expect it to. say.hello() ain’t going to work if is a number.
+                            But it’s worse than that because not only is everything nullable, but also nothing is type checked.
+                            So a property may not contain a value at all or it may contain a value that is the wrong type and
+                            therefore does not behave the way you expect it to.
 
-Remember, the rug can be pulled from beneath your feet at any time by code that you know nothing about. (rug pull gif?)
+                            So what is the root of all evil? Is it money? Is it premature optimisation? I think it might be “this”.
+                            So I’m not a huge OO fan and I’m pretty suspicious of “this” in any language these days
+                            because `this` tends to mean side-effects.
 
- So what is the root of all evil? Is it money? Is it premature optimisation? I think it might be “this”. So I’m not a huge OO fan and I’m pretty suspicious of “this” in any language these days because `this` tends to mean side-effects. But in JS the problem is particularly acute because we can never really be sure what `this` means. Has it been intentionally or accidentally manipulated by `call` or `apply` or `bind`? But even if we know exactly what `this` meant, it would still be evil. Why?
-"
+                            But in JS the problem is particularly acute because we can never really be sure what `this` means.
+                            Has it been intentionally or accidentally manipulated by `call` or `apply` or `bind`?
+                            But even if we know exactly what `this` meant, it would still be evil. Why?"
                            bgColor="primary">
                         <CodePane source={require('raw!../assets/badfunctioncommented')} lang="javascript" textSize={25} />
                     </Slide>
+                    <Slide transition={["slide"]}
+                            bgColor="white">
+                        <Heading caps fit size={1} textColor="primary">
+                            How angular makes this worse
+                        </Heading>
+                        <Text padding={20}>
+                            ngService (singleton)
+                        </Text>
+                        <Image src={images.down} width="50px" />
+                        <Layout>
+                            <Fill>
+                                <Text padding={20}>
+                                    ngController / ngDirective
+                                </Text>
+                                <Image src={images.down} width="50px" />
+                                <Text padding={20}>
+                                    two way data binding
+                                </Text>
+                            </Fill>
+                            <Fill>
+                                <Text padding={20}>
+                                    ngController / ngDirective
+                                </Text>
+                                <Image src={images.down} width="50px" />
+                                <Text padding={20}>
+                                    two way data binding
+                                </Text>
+                            </Fill>
+                        </Layout>
+                    </Slide>
+                    <Slide transition={["zoom", "slide"]}
+                           notes="So the answer is, yes, we should do all of those things. Will it solve the problem? No."
+                           bgColor="primary">
+                        <Heading caps fit size={1} textColor="black">
+                            So what do we do?
+                        </Heading>
+                        <Appear fid="1">
+                            <Heading caps size={4} padding={20} margin={20} bgColor="white" textColor="black">
+                                Linting?
+                            </Heading>
+                        </Appear>
+                        <Appear fid="2">
+                            <Heading caps size={4} padding={20} margin={20} bgColor="white" textColor="black">
+                                Code reviews?
+                            </Heading>
+                        </Appear>
+                        <Appear fid="3">
+                            <Heading caps size={4} padding={20} margin={20} bgColor="white" textColor="black">
+                                Unit tests?
+                            </Heading>
+                        </Appear>
+                        <Appear fid="4">
+                            <Heading caps size={4} padding={20} margin={20} bgColor="white" textColor="black">
+                                Typescript?
+                            </Heading>
+                        </Appear>
+                    </Slide>
                     <Slide transition={["zoom"]}
-                           notes="This is an example of why side effects are bad"
                            bgImage={images.sunset.replace("/", "")}
                            bgDarken={0.75}
                            bgColor="black">
