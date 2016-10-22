@@ -55,6 +55,7 @@ const images = {
     castle: require("../assets/castle.jpg"),
     sunset: require("../assets/sunset.jpg"),
     poo: require("../assets/poo.png"),
+    reaper: require("../assets/reaper.jpg"),
     pokemon: {
         jynx: require('../assets/jynx.jpg'),
         gyrados: require('../assets/gyarados.jpg'),
@@ -292,12 +293,47 @@ So, just to be clear, I will be expressing some opinions here that you may not a
                            bgColor="black">
                         <Batman />
                     </Slide>
+                    <Slide transition={["zoom", "fade"]}
+                           notes="These are the four horsemen of the javascript apocalypse"
+                           bgImage={images.reaper.replace("/", "")}
+                           bgDarken={0.5} >
+                        <Heading caps fit>The four horsemen</Heading>
+                        <Layout>
+                            <Fill>
+                                <Heading size={4} caps textColor="white" bgColor="primary" padding={30} margin={20}>
+                                    Nullable
+                                </Heading>
+                            </Fill>
+                            <Fill>
+                                <Heading size={4} caps textColor="white" bgColor="primary" padding={30} margin={20}>
+                                    Mutable
+                                </Heading>
+                            </Fill>
+                        </Layout>
+                        <Layout>
+                            <Fill>
+                                <Heading size={4} caps textColor="white" bgColor="primary" padding={30} margin={20}>
+                                    Dynamic
+                                </Heading>
+                            </Fill>
+                            <Fill>
+                                <Heading size={4} caps textColor="white" bgColor="primary" padding={30} margin={20}>
+                                    Side-effect-y
+                                </Heading>
+                            </Fill>
+                        </Layout>
+                    </Slide>
+                    <Slide transition={["slide"]}
+                           notes=""
+                           bgColor="primary">
+                        <CodePane source={require('raw!../assets/badfunction')} lang="javascript" />
+                    </Slide>
                     <Slide transition={["zoom"]}
                            notes="This is an example of why side effects are bad"
                            bgImage={images.sunset.replace("/", "")}
                            bgDarken={0.75}
                            bgColor="black">
-                        <Pokedog pokemon={images.pokemon.charizard} dog={images.dogs.dog1} />
+                        <Pokedog pokemon={images.pokemon.charizard} dog={images.dogs.dog2} />
                     </Slide>
                     <Slide transition={["spin", "zoom"]} bgColor="tertiary">
                         <Heading caps fit size={1} textColor="primary">

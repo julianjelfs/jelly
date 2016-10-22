@@ -1,0 +1,4 @@
+function updateAddress(postCode) {
+    this.user.address.postCode = postCode;
+    this.saveUser();
+}
