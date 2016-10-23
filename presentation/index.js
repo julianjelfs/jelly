@@ -9,6 +9,7 @@ import {
     CodePane,
     Deck,
     Fill,
+    Fit,
     Heading,
     Image,
     Layout,
@@ -40,6 +41,7 @@ require("spectacle/lib/themes/default/index.css");
 
 
 const images = {
+    elephant: require("../assets/elephant.jpg"),
     city: require("../assets/city.jpg"),
     kat: require("../assets/kat.png"),
     logo: require("../assets/formidable-logo.svg"),
@@ -393,8 +395,14 @@ In addition to that we all know that angular achieves this magical binding by co
                             </Layout>
                         </div>
                     </Slide>
-                    <Slide transition={["zoom", "slide"]}
-                           notes="So the answer is, yes, we should do all of those things. Will it solve the problem? No."
+                    <Slide transition={["zoom"]}
+                           notes="
+                            <ul>
+                                <li>Linting - Good idea - this can catch a whole class of stupid errors and it is a no-brain good idea. Does it fix any of our big five problems? Not really. We have already done this and use eslint and tshint on the whole codebase all the time</li>
+                                <li>Reviews - Very important. So we moved to a more strict pull request workflow. This is good but not without problems. PR fatigue is a real thing. Opportunity cost of reviewing. Reviewers need to be paid.</li>
+                                <li>Unit tests - We have not far off 1000 js unit tests. They are far from a panacea. Tests are written in javascript and therefore have all the same problems as the code that they exercise. Unit testing is a skill and it will inform the design of your system. Trying to retrofit unit tests will leave you in mocking hell. All too easy to end up with unrealistic test data running through an incorrectly specified mock telling you everything is fine. </li>
+                            </ul>
+                            "
                            bgColor="primary">
                         <Heading caps fit size={1} textColor="black">
                             So what do we do?
@@ -424,10 +432,28 @@ In addition to that we all know that angular achieves this magical binding by co
                            bgImage={images.castle.replace("/", "")}
                            bgDarken={0.75}
                            notes="This is a question that I sometimes ask people in interviews. It tells me whether they are learners (and also whether they can handle weird questions). I like to work with learners. Learners will be prepared to change their opinions on things and they will evolve and they will naturally have an answer to this question. Do you have any answers? I have a few. ">
-                        <BlockQuote>
-                            <Quote>Testing is good, impossible is better</Quote>
-                            <Cite>Richard Feldman - NoRedInk</Cite>
-                        </BlockQuote>
+                        <Layout>
+                            <Fill>
+                                <BlockQuote>
+                                    <Quote>Testing is good, impossible is better</Quote>
+                                    <Cite>Richard Feldman - NoRedInk</Cite>
+                                </BlockQuote>
+                            </Fill>
+                            <Fit>
+                                <Image src={images.feldman} width="300px" />
+                            </Fit>
+                        </Layout>
+                    </Slide>
+                    <Slide transition={["zoom"]}
+                           bgImage={images.elephant.replace("/", "")}
+                           bgDarken={0.5}
+                           bgColor="black">
+                        <Heading caps fit size={1} textColor="primary">
+                            Use a better
+                        </Heading>
+                        <Heading caps fit size={1} textColor="white">
+                            language!
+                        </Heading>
                     </Slide>
                     <Slide transition={["zoom"]}
                            bgImage={images.sunset.replace("/", "")}
