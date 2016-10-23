@@ -57,6 +57,8 @@ const images = {
     poo: require("../assets/poo.png"),
     reaper: require("../assets/reaper.jpg"),
     down: require("../assets/down.png"),
+    sunset2: require("../assets/sunset2.jpg"),
+    feldman: require("../assets/feldman.jpg"),
     pokemon: {
         jynx: require('../assets/jynx.jpg'),
         gyrados: require('../assets/gyarados.jpg'),
@@ -354,34 +356,42 @@ So, just to be clear, I will be expressing some opinions here that you may not a
                         <CodePane source={require('raw!../assets/badfunctioncommented')} lang="javascript" textSize={25} />
                     </Slide>
                     <Slide transition={["slide"]}
-                            bgColor="white">
+                           bgImage={images.sunset2.replace("/", "")}
+                           notes="It is a very common pattern in angular to server some data from a service to a controller or a directive and then have that data exposed to the view via a controller model. Because of the untyped nature of JS there are no contracts protecting these boundaries. Because of the dynamic nature of the language that data may be mutated by any component. Angular js will mutate the data by design using its two way data binding mechanism. This means that if two components are bound to the same data they will be interacting via mutation  in a way that is beyond the control of either component. Neither component explicitly asked to observe this data, to subscribe to changes in this data. In fact it is unclear what the canonical source of truth for this data now is.
+
+By the time you notice you have this problem you are already in deep trouble. You might think, well I will just clone the data on the way out of the services but then you will discover that half of your components were probably relying on this invisible coupling that previously existed. It is difficult to escape that.
+
+In addition to that we all know that angular achieves this magical binding by constantly watching everything all the time and this of course this can slow you down unless you manage it carefully. This is often described as Angular’s main problem but to me it is totally manageable and not nearly as serious as the data chaos problem"
+                           bgDarken={0.75} >
                         <Heading caps fit size={1} textColor="primary">
                             How angular makes this worse
                         </Heading>
-                        <Text padding={20}>
-                            ngService (singleton)
-                        </Text>
-                        <Image src={images.down} width="50px" />
-                        <Layout>
-                            <Fill>
-                                <Text padding={20}>
-                                    ngController / ngDirective
-                                </Text>
-                                <Image src={images.down} width="50px" />
-                                <Text padding={20}>
-                                    two way data binding
-                                </Text>
-                            </Fill>
-                            <Fill>
-                                <Text padding={20}>
-                                    ngController / ngDirective
-                                </Text>
-                                <Image src={images.down} width="50px" />
-                                <Text padding={20}>
-                                    two way data binding
-                                </Text>
-                            </Fill>
-                        </Layout>
+                        <div className="panel">
+                            <Text padding={20}>
+                                ngService (singleton)
+                            </Text>
+                            <Image src={images.down} width="50px"/>
+                            <Layout>
+                                <Fill>
+                                    <Text padding={20}>
+                                        ngController / ngDirective
+                                    </Text>
+                                    <Image src={images.down} width="50px"/>
+                                    <Text padding={20}>
+                                        two way data binding
+                                    </Text>
+                                </Fill>
+                                <Fill>
+                                    <Text padding={20}>
+                                        ngController / ngDirective
+                                    </Text>
+                                    <Image src={images.down} width="50px"/>
+                                    <Text padding={20}>
+                                        two way data binding
+                                    </Text>
+                                </Fill>
+                            </Layout>
+                        </div>
                     </Slide>
                     <Slide transition={["zoom", "slide"]}
                            notes="So the answer is, yes, we should do all of those things. Will it solve the problem? No."
@@ -409,6 +419,15 @@ So, just to be clear, I will be expressing some opinions here that you may not a
                                 Typescript?
                             </Heading>
                         </Appear>
+                    </Slide>
+                    <Slide transition={["slide"]}
+                           bgImage={images.castle.replace("/", "")}
+                           bgDarken={0.75}
+                           notes="This is a question that I sometimes ask people in interviews. It tells me whether they are learners (and also whether they can handle weird questions). I like to work with learners. Learners will be prepared to change their opinions on things and they will evolve and they will naturally have an answer to this question. Do you have any answers? I have a few. ">
+                        <BlockQuote>
+                            <Quote>Testing is good, impossible is better</Quote>
+                            <Cite>Richard Feldman - NoRedInk</Cite>
+                        </BlockQuote>
                     </Slide>
                     <Slide transition={["zoom"]}
                            bgImage={images.sunset.replace("/", "")}
