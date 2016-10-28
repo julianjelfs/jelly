@@ -61,6 +61,7 @@ const images = {
     down: require("../assets/down.png"),
     sunset2: require("../assets/sunset2.jpg"),
     feldman: require("../assets/feldman.jpg"),
+    trollface: require("../assets/trollface.png"),
     pokemon: {
         jynx: require('../assets/jynx.jpg'),
         gyrados: require('../assets/gyarados.jpg'),
@@ -358,6 +359,13 @@ So, just to be clear, I will be expressing some opinions here that you may not a
                         <CodePane source={require('raw!../assets/badfunctioncommented')} lang="javascript" textSize={25} />
                     </Slide>
                     <Slide transition={["slide"]}
+                           bgImage={images.trollface}
+                           bgDarken={0.75}
+                           bgColor="primary"
+                           notes="So what's so bad about side-effects? Side effects are what make our programs do stuff. Here's a fun demonstration of the dangers of side effects. Let's be honest, mostly just because it's cool.">
+                        <Pokedog />
+                    </Slide>
+                    <Slide transition={["slide"]}
                            bgImage={images.sunset2.replace("/", "")}
                            notes="It is a very common pattern in angular to server some data from a service to a controller or a directive and then have that data exposed to the view via a controller model. Because of the untyped nature of JS there are no contracts protecting these boundaries. Because of the dynamic nature of the language that data may be mutated by any component. Angular js will mutate the data by design using its two way data binding mechanism. This means that if two components are bound to the same data they will be interacting via mutation  in a way that is beyond the control of either component. Neither component explicitly asked to observe this data, to subscribe to changes in this data. In fact it is unclear what the canonical source of truth for this data now is.
 
@@ -424,7 +432,7 @@ In addition to that we all know that angular achieves this magical binding by co
                         </Appear>
                         <Appear fid="4">
                             <Heading caps size={4} padding={20} margin={20} bgColor="white" textColor="black">
-                                Typescript?
+                                Typescript? (Later?)
                             </Heading>
                         </Appear>
                     </Slide>
@@ -456,10 +464,8 @@ In addition to that we all know that angular achieves this magical binding by co
                         </Heading>
                     </Slide>
                     <Slide transition={["zoom"]}
-                           bgImage={images.sunset.replace("/", "")}
-                           bgDarken={0.75}
                            bgColor="black">
-                        <Pokedog pokemon={images.pokemon.charizard} dog={images.dogs.dog2} />
+                        <iframe className="word-runner" src="https://julianjelfs.github.io/word-runner/dist/index.html" width="800" height="600" frameBorder={0} />
                     </Slide>
                     <Slide transition={["spin", "zoom"]} bgColor="tertiary">
                         <Heading caps fit size={1} textColor="primary">
