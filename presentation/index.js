@@ -62,6 +62,7 @@ const images = {
     sunset2: require("../assets/sunset2.jpg"),
     feldman: require("../assets/feldman.jpg"),
     trollface: require("../assets/trollface.png"),
+    clojure: require("../assets/clojure.jpg"),
     pokemon: {
         jynx: require('../assets/jynx.jpg'),
         gyrados: require('../assets/gyarados.jpg'),
@@ -409,6 +410,7 @@ In addition to that we all know that angular achieves this magical binding by co
                                 <li>Linting - Good idea - this can catch a whole class of stupid errors and it is a no-brain good idea. Does it fix any of our big five problems? Not really. We have already done this and use eslint and tshint on the whole codebase all the time</li>
                                 <li>Reviews - Very important. So we moved to a more strict pull request workflow. This is good but not without problems. PR fatigue is a real thing. Opportunity cost of reviewing. Reviewers need to be paid.</li>
                                 <li>Unit tests - We have not far off 1000 js unit tests. They are far from a panacea. Tests are written in javascript and therefore have all the same problems as the code that they exercise. Unit testing is a skill and it will inform the design of your system. Trying to retrofit unit tests will leave you in mocking hell. All too easy to end up with unrealistic test data running through an incorrectly specified mock telling you everything is fine. </li>
+                                <li>Cooler framework - will it solve the problems?</li>
                             </ul>
                             "
                            bgColor="primary">
@@ -432,14 +434,16 @@ In addition to that we all know that angular achieves this magical binding by co
                         </Appear>
                         <Appear fid="4">
                             <Heading caps size={4} padding={20} margin={20} bgColor="white" textColor="black">
-                                Typescript? (Later?)
+                                Cooler framework?
                             </Heading>
                         </Appear>
                     </Slide>
                     <Slide transition={["slide"]}
                            bgImage={images.castle.replace("/", "")}
                            bgDarken={0.75}
-                           notes="This is a question that I sometimes ask people in interviews. It tells me whether they are learners (and also whether they can handle weird questions). I like to work with learners. Learners will be prepared to change their opinions on things and they will evolve and they will naturally have an answer to this question. Do you have any answers? I have a few. ">
+                           notes="So we can jump through all of these hoops to make incremental improvements to the state of
+                            affairs and it's worth doing. But we haven't actually removed these problems. Impossible is better.
+                            How do we make these problems impossible?">
                         <Layout>
                             <Fill>
                                 <BlockQuote>
@@ -455,6 +459,7 @@ In addition to that we all know that angular achieves this magical binding by co
                     <Slide transition={["zoom"]}
                            bgImage={images.elephant.replace("/", "")}
                            bgDarken={0.5}
+                           notes="So quite a few of my complaints are about javascript and so it seems quite obvious that they can’t be fixed unless we stop using javascript. Up until fairly recently this would have been quite a controversial idea, but now, not so much. How many people here are compiling es6 style javascript into es5? We have found es6 to be a pleasant step forwards in programming convenience and there are even a few things that will makes things a little bit safer, but it’s clear that it doesn’t go far enough. "
                            bgColor="black">
                         <Heading caps fit size={1} textColor="primary">
                             Use a better
@@ -462,6 +467,90 @@ In addition to that we all know that angular achieves this magical binding by co
                         <Heading caps fit size={1} textColor="white">
                             language!
                         </Heading>
+                    </Slide>
+                    <Slide transition={["zoom"]}
+                           notes="How many people here use typescript? Typescript imposes a type system on top of javascript and therefore ticks some of my boxes. Typescript 2 has non-nullable types. It has union data types and many other nice features. It provides great tooling experience, serves to document the code and will catch a lot of issues before they happen. But it is designed to be a superset of javascript and therefore suffers from javascript’s limitations. It’s type system is useful for catching errors but it is intentionally not a sound type system i.e. it does not give guarantees of correctness. Most importantly it is an optional type system which requires annotation of the code - if you don’t actually use it, it isn’t going to help you. And of course - we still have `this`
+
+We currently use Typescript for all new client side code we write at TR. There is really no good reason not to use it in preference to JS I think. Some people grumble about it because it is a little more verbose, but that’s life. The big problem is to get people to actually make good use of it. It is important to build a cohesive description of your data model in TS before you try to use it or it will just be frustrating and your code will end up littered with `any` annotations. You could very plausibly opt for Flow instead which fills a pretty similar gap.
+
+So overall I see Typescript as being, very nice and improving all the time, but it is, by its very nature, compromised by JS. "
+                           bgColor="black">
+                        <Heading margin={20}>
+                            Typescript?
+                        </Heading>
+                        <Layout>
+                            <Fill>
+                                <Appear fid="0">
+                                    <Heading size={4} caps textColor="white" bgColor="orange" padding={30} margin={20}>
+                                        Nullable
+                                    </Heading>
+                                </Appear>
+                            </Fill>
+                            <Fill>
+                                <Appear fid="1">
+                                    <Heading size={4} caps textColor="white" bgColor="red" padding={30} margin={20}>
+                                        Mutable
+                                    </Heading>
+                                </Appear>
+                            </Fill>
+                        </Layout>
+                        <Layout>
+                            <Fill>
+                                <Appear fid="2">
+                                    <Heading size={4} caps textColor="white" bgColor="orange" padding={30} margin={20}>
+                                        Dynamic
+                                    </Heading>
+                                </Appear>
+                            </Fill>
+                            <Fill>
+                                <Appear fid="3">
+                                    <Heading size={4} caps textColor="white" bgColor="red" padding={30} margin={20}>
+                                        Side-effect-y
+                                    </Heading>
+                                </Appear>
+                            </Fill>
+                        </Layout>
+                    </Slide>
+                    <Slide transition={["slide"]}
+                           notes=""
+                           bgImage={images.clojure.replace("/", "")}
+                           bgDarken={0.75}
+                           bgColor="black">
+                        <Heading margin={20}>
+                            Clojurescript?
+                        </Heading>
+                        <Layout>
+                            <Fill>
+                                <Appear fid="0">
+                                    <Heading size={4} caps textColor="white" bgColor="orange" padding={30} margin={20}>
+                                        Nullable
+                                    </Heading>
+                                </Appear>
+                            </Fill>
+                            <Fill>
+                                <Appear fid="1">
+                                    <Heading size={4} caps textColor="white" bgColor="green" padding={30} margin={20}>
+                                        Mutable
+                                    </Heading>
+                                </Appear>
+                            </Fill>
+                        </Layout>
+                        <Layout>
+                            <Fill>
+                                <Appear fid="2">
+                                    <Heading size={4} caps textColor="white" bgColor="orange" padding={30} margin={20}>
+                                        Dynamic
+                                    </Heading>
+                                </Appear>
+                            </Fill>
+                            <Fill>
+                                <Appear fid="3">
+                                    <Heading size={4} caps textColor="white" bgColor="orange" padding={30} margin={20}>
+                                        Side-effect-y
+                                    </Heading>
+                                </Appear>
+                            </Fill>
+                        </Layout>
                     </Slide>
                     <Slide transition={["zoom"]}
                            bgColor="black">
