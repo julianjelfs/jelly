@@ -63,6 +63,7 @@ const images = {
     feldman: require("../assets/feldman.jpg"),
     trollface: require("../assets/trollface.png"),
     clojure: require("../assets/clojure.jpg"),
+    elm: require("../assets/elm.png"),
     pokemon: {
         jynx: require('../assets/jynx.jpg'),
         gyrados: require('../assets/gyarados.jpg'),
@@ -546,6 +547,47 @@ So overall I see Typescript as being, very nice and improving all the time, but 
                             <Fill>
                                 <Appear fid="3">
                                     <Heading size={4} caps textColor="white" bgColor="orange" padding={30} margin={20}>
+                                        Side-effect-y
+                                    </Heading>
+                                </Appear>
+                            </Fill>
+                        </Layout>
+                    </Slide>
+                    <Slide transition={["zoom"]}
+                           notes=""
+                           bgImage={images.elm.replace("/", "")}
+                           bgDarken={0.75}
+                           bgColor="black">
+                        <Heading margin={20}>
+                            Elm?
+                        </Heading>
+                        <Layout>
+                            <Fill>
+                                <Appear fid="0">
+                                    <Heading size={4} caps textColor="white" bgColor="green" padding={30} margin={20}>
+                                        Nullable
+                                    </Heading>
+                                </Appear>
+                            </Fill>
+                            <Fill>
+                                <Appear fid="1">
+                                    <Heading size={4} caps textColor="white" bgColor="green" padding={30} margin={20}>
+                                        Mutable
+                                    </Heading>
+                                </Appear>
+                            </Fill>
+                        </Layout>
+                        <Layout>
+                            <Fill>
+                                <Appear fid="2">
+                                    <Heading size={4} caps textColor="white" bgColor="green" padding={30} margin={20}>
+                                        Dynamic
+                                    </Heading>
+                                </Appear>
+                            </Fill>
+                            <Fill>
+                                <Appear fid="3">
+                                    <Heading size={4} caps textColor="white" bgColor="green" padding={30} margin={20}>
                                         Side-effect-y
                                     </Heading>
                                 </Appear>
