@@ -41,6 +41,7 @@ require("spectacle/lib/themes/default/index.css");
 
 
 const images = {
+    fear: require("../assets/fear.jpg"),
     elephant: require("../assets/elephant.jpg"),
     city: require("../assets/city.jpg"),
     kat: require("../assets/kat.png"),
@@ -308,24 +309,24 @@ So, just to be clear, I will be expressing some opinions here that you may not a
                         <Heading caps fit>The four horsemen</Heading>
                         <Layout>
                             <Fill>
-                                <Heading size={4} caps textColor="white" bgColor="primary" padding={30} margin={20}>
+                                <Heading size={4} caps textColor="white" bgColor="red" padding={30} margin={20}>
                                     Nullable
                                 </Heading>
                             </Fill>
                             <Fill>
-                                <Heading size={4} caps textColor="white" bgColor="primary" padding={30} margin={20}>
+                                <Heading size={4} caps textColor="white" bgColor="red" padding={30} margin={20}>
                                     Mutable
                                 </Heading>
                             </Fill>
                         </Layout>
                         <Layout>
                             <Fill>
-                                <Heading size={4} caps textColor="white" bgColor="primary" padding={30} margin={20}>
+                                <Heading size={4} caps textColor="white" bgColor="red" padding={30} margin={20}>
                                     Dynamic
                                 </Heading>
                             </Fill>
                             <Fill>
-                                <Heading size={4} caps textColor="white" bgColor="primary" padding={30} margin={20}>
+                                <Heading size={4} caps textColor="white" bgColor="red" padding={30} margin={20}>
                                     Side-effect-y
                                 </Heading>
                             </Fill>
@@ -410,8 +411,8 @@ In addition to that we all know that angular achieves this magical binding by co
                             <ul>
                                 <li>Linting - Good idea - this can catch a whole class of stupid errors and it is a no-brain good idea. Does it fix any of our big five problems? Not really. We have already done this and use eslint and tshint on the whole codebase all the time</li>
                                 <li>Reviews - Very important. So we moved to a more strict pull request workflow. This is good but not without problems. PR fatigue is a real thing. Opportunity cost of reviewing. Reviewers need to be paid.</li>
-                                <li>Unit tests - We have not far off 1000 js unit tests. They are far from a panacea. Tests are written in javascript and therefore have all the same problems as the code that they exercise. Unit testing is a skill and it will inform the design of your system. Trying to retrofit unit tests will leave you in mocking hell. All too easy to end up with unrealistic test data running through an incorrectly specified mock telling you everything is fine. </li>
-                                <li>Cooler framework - will it solve the problems?</li>
+                                <li>Unit tests - We have not far off 1000 js unit tests. They are far from a panacea. Tests are written in javascript and therefore have all the same problems as the code that they exercise. OO code typically requires a lot of mocking. A mock indicates a hidden side effect. All too easy to end up with unrealistic test data running through an incorrectly specified mock telling you everything is fine. </li>
+                                <li>Cooler framework - it's quite popular to bash angular, and it kind of deserves it, but is it really the problem?</li>
                             </ul>
                             "
                            bgColor="primary">
@@ -554,7 +555,16 @@ So overall I see Typescript as being, very nice and improving all the time, but 
                         </Layout>
                     </Slide>
                     <Slide transition={["zoom"]}
-                           notes=""
+                           notes="
+<div>Who has heard of Elm? Who is using Elm? What is Elm? Elm is a statically typed, pure functional programming
+language that compiles to javascript.</div>
+<ul>
+    <li>There are no nulls in elm. Nothing is nullable, there is also no concept of void, an expression must have a type.</li>
+    <li>All data structures in elm are immutable. No 'by default', no exceptions, no back doors.</li>
+    <li>Elm is a statically typed language. It uses Hindley-Milner type inference - like f# and haskell.</li>
+    <li>Elm strictly controls side-effects. Your code never executes side effects, they are explicitly captured by the type system and executed by the runtime. This means all of your functions are pure.</li>
+</ul>
+"
                            bgImage={images.elm.replace("/", "")}
                            bgDarken={0.75}
                            bgColor="black">
@@ -594,54 +604,63 @@ So overall I see Typescript as being, very nice and improving all the time, but 
                             </Fill>
                         </Layout>
                     </Slide>
+                    <Slide transition={["spin"]}
+                           notes=" "
+                           bgImage={images.elm.replace("/", "")}
+                           bgDarken={0.75}
+                           bgColor="primary">
+                        <Heading caps margin={20} textColor="primary">
+                            What do we get?
+                        </Heading>
+                        <Appear><Text textColor="white">Zero runtime errors</Text></Appear>
+                        <Appear><Text textColor="white">Great performance (and lightweight)</Text></Appear>
+                        <Appear><Text textColor="white">Wonderful compiler</Text></Appear>
+                        <Appear><Text textColor="white">Excellent standard library</Text></Appear>
+                        <Appear><Text textColor="white">The Elm Architecture</Text></Appear>
+                        <Appear><Text textColor="white">Community</Text></Appear>
+                    </Slide>
+                    <Slide transition={["fade"]}
+                           notes="
+Look at how badly angular shafted us. We didn’t hesitate to use angular because we trusted it and they have simply abandoned it. They have put a lot of effort into creating the illusion of migration. But the migration looks like this: take your angular 1 code, throw it away, write new code in angular 2. Why would I do that?
+
+Elm is not in the same category as angular. It is first and foremost a strongly typed pure functional language. There is a web development architecture that emerges from that and there there is a strong standard library to do most of the stuff you need to do (vdom, http, json etc). The language has very clear principles based on 40 years of functional programming experience. So is it more or less likely to be derailed than angular x? Certainly not more in my opinion.
+"
+                           bgImage={images.fear.replace("/", "")}
+                           bgDarken={0.75}
+                           bgColor="black">
+                        <Heading caps margin={20} textColor="white">
+                            The risks?
+                        </Heading>
+                        <Appear><Text textColor="white">It's too hard</Text></Appear>
+                        <Appear><Text textColor="white">It's too young</Text></Appear>
+                        <Appear><Text textColor="white">It's BDFL software</Text></Appear>
+                        <Appear><Text textColor="white">It might disappear</Text></Appear>
+                        <Appear><Text textColor="white">How will I recruit?</Text></Appear>
+                    </Slide>
                     <Slide transition={["zoom"]}
                            bgColor="black">
                         <iframe className="word-runner" src="https://julianjelfs.github.io/word-runner/dist/index.html" width="800" height="600" frameBorder={0} />
                     </Slide>
-                    <Slide transition={["spin", "zoom"]} bgColor="tertiary">
-                        <Heading caps fit size={1} textColor="primary">
-                            Inline Markdown
-                        </Heading>
-                        <Markdown>
-                            {`
-![Markdown Logo](${images.markdown.replace("/", "")})
+                    <Slide transition={["spin", "slide"]} bgColor="tertiary"
+                        notes="So in summary, have a look at your situation and honestly ask yourself whether you have these issues.
 
-You can write inline images, [Markdown Links](http://commonmark.org), paragraph text and most other markdown syntax
-* Lists too!
-* With ~~strikethrough~~ and _italic_
-* And lets not forget **bold**
-              `}
-                        </Markdown>
-                    </Slide>
-                    <Slide transition={["slide", "spin"]} bgColor="primary">
-                        <Heading caps fit size={1} textColor="tertiary">
-                            Smooth
-                        </Heading>
-                        <Heading caps fit size={1} textColor="secondary">
-                            Combinable Transitions
-                        </Heading>
-                    </Slide>
-                    <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
-                        <List>
-                            <Appear><ListItem>Inline style based theme system</ListItem></Appear>
-                            <Appear><ListItem>Autofit text</ListItem></Appear>
-                            <Appear><ListItem>Flexbox layout system</ListItem></Appear>
-                            <Appear><ListItem>React-Router navigation</ListItem></Appear>
-                            <Appear><ListItem>PDF export</ListItem></Appear>
-                            <Appear><ListItem>And...</ListItem></Appear>
-                        </List>
-                    </Slide>
-                    <Slide transition={["slide"]} bgColor="primary">
-                        <Heading size={1} caps fit textColor="tertiary">
-                            Your presentations are interactive
-                        </Heading>
-                        <Interactive/>
-                    </Slide>
-                    <Slide transition={["spin", "slide"]} bgColor="tertiary">
+If you do, consider giving Elm a try. Try a small part of your app or a side project. It's easy to embed. See for yourself that
+its claims are true.">
                         <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
-                            Made with love in Seattle by
+                            Questions?
                         </Heading>
-                        <Link href="http://www.formidablelabs.com"><Image width="100%" src={images.logo}/></Link>
+                        <Text>WAT? by Gary Bernhardt</Text>
+                        <Link href="https://www.destroyallsoftware.com/talks/wat">
+                            https://www.destroyallsoftware.com/talks/wat
+                        </Link>
+                        <Text>Harlem Shake XSS exploit</Text>
+                        <Link href="https://github.com/DinisCruz/XSS-Pocs/blob/master/pocs/dance-xss.js">
+                            https://github.com/DinisCruz/XSS-Pocs/blob/master/pocs/dance-xss.js
+                        </Link>
+                        <Text>My github account</Text>
+                        <Link href="https://github.com/julianjelfs">
+                            https://github.com/julianjelfs
+                        </Link>
                     </Slide>
                 </Deck>
             </Spectacle>
