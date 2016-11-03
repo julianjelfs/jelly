@@ -95,7 +95,7 @@ export default class Presentation extends React.Component {
                     <Slide
                         transition={["zoom"]}
                         bgColor="primary"
-                        notes="My name is Julian Jelfs, I am the front end dev manager at Travel Republic which means that I take care of approving leave requests and stuff like that. I have been at TR for about three years which is roughly fifteen years in web developer years. I want to give a little glimpse into the challenges that we face on the front end which hopefully some people will empathise with and talk about some of things we have done to try to ease the pain and also some of the more extreme things we could do">
+                        notes="My name is Julian Jelfs, I am the front end dev manager at Travel Republic which means that I take care of approving leave requests and stuff like that. I don't even have any stickers on my laptop!. I have been at TR for about three years which is roughly fifteen years in web developer years. I want to give a little glimpse into the challenges that we face on the front end which hopefully some people will empathise with and talk about some of things we have done to try to ease the pain and also some of the more extreme things we could do">
                         <Heading size={1} fit caps lineHeight={1} textColor="secondary">
                             Javascript is dead
                         </Heading>
@@ -303,7 +303,7 @@ So, just to be clear, I will be expressing some opinions here that you may not a
                         <Batman />
                     </Slide>
                     <Slide transition={["zoom", "fade"]}
-                           notes="These are the four horsemen of the javascript apocalypse"
+                           notes="These are the four horsemen of the javascript apocalypse.JS is a dynamic language. Everything is mutable, everything is nullable. Anything goes. This is the ultimate freedom and results in a wonderfully expressive, malleable and fun programming language. But this comes with a cost. "
                            bgImage={images.reaper.replace("/", "")}
                            bgDarken={0.5} >
                         <Heading caps fit>The four horsemen</Heading>
@@ -341,10 +341,9 @@ So, just to be clear, I will be expressing some opinions here that you may not a
                         <CodePane source={require('raw!../assets/badfunction')} lang="javascript" textSize={25} />
                     </Slide>
                     <Slide transition={["none"]}
-                           notes="So there are such a lot of questions here. You might just say that this is simply bad code, and it is.
-                           But so much of this is simply down to the language itself. Everything is nullable but we have no way
-                           to handle it. If you put null checks everywhere that you should your code would be completely unreadable.
-                           So we ommit them and settle for runtime errors instead. Nulls are so evil that Tony Hoare famously called
+                           notes="<p class='small'>So there are such a lot of questions here. But so much of this is simply down to the language itself.
+                           Everything is nullable but if you put null checks everywhere that you should your code would be messy so
+                           we ommit them and settle for runtime errors instead. Nulls are so evil that Tony Hoare famously called
                            them his billion dollar mistake. That was 30 years ago - what’s the price tag now.
 
                             But it’s worse than that because not only is everything nullable, but also nothing is type checked.
@@ -357,7 +356,7 @@ So, just to be clear, I will be expressing some opinions here that you may not a
 
                             But in JS the problem is particularly acute because we can never really be sure what `this` means.
                             Has it been intentionally or accidentally manipulated by `call` or `apply` or `bind`?
-                            But even if we know exactly what `this` meant, it would still be evil. Why?"
+                            But even if we know exactly what `this` meant, it would still be evil. Why?</p>"
                            bgColor="primary">
                         <CodePane source={require('raw!../assets/badfunctioncommented')} lang="javascript" textSize={25} />
                     </Slide>
@@ -514,7 +513,11 @@ So overall I see Typescript as being, very nice and improving all the time, but 
                         </Layout>
                     </Slide>
                     <Slide transition={["slide"]}
-                           notes=""
+                           notes="
+Dynamic functional programming language. Dialect of lisp which is not for everyone. Leans on the google closure library and
+compiler to great effect. Combined with figwheel and dev cards it has a great developer experience. If I were working on my own,
+this might be the one for me.
+"
                            bgImage={images.clojure.replace("/", "")}
                            bgDarken={0.75}
                            bgColor="black">
@@ -637,9 +640,37 @@ Elm is not in the same category as angular. It is first and foremost a strongly 
                         <Appear><Text textColor="white">It might disappear</Text></Appear>
                         <Appear><Text textColor="white">How will I recruit?</Text></Appear>
                     </Slide>
-                    <Slide transition={["zoom"]}
+{/*                    <Slide transition={["zoom"]}
                            bgColor="black">
                         <iframe className="word-runner" src="https://julianjelfs.github.io/word-runner/dist/index.html" width="800" height="600" frameBorder={0} />
+                    </Slide>*/}
+                    <Slide transition={["slide"]}
+                        bgColor="white">
+                        <Heading size={1} caps lineHeight={1.5} textColor="primary">
+                            Code
+                        </Heading>
+                        <div className="code-samples">
+                            <Text>TR front end recruitment test a la Elm</Text>
+                            <Link href="https://github.com/julianjelfs/elmhotels">
+                                https://github.com/julianjelfs/elmhotels
+                            </Link>
+                            <Text>Clone of Kindle word runner app</Text>
+                            <Link href="https://github.com/julianjelfs/word-runner">
+                                https://github.com/julianjelfs/word-runner
+                            </Link>
+                            <Text>Minesweeper in Elm</Text>
+                            <Link href="https://github.com/julianjelfs/elm-minesweeper">
+                                https://github.com/julianjelfs/elm-minesweeper
+                            </Link>
+                            <Text>Thruster - a multiplayer game in node and Elm</Text>
+                            <Link href="https://github.com/julianjelfs/thruster">
+                                https://github.com/julianjelfs/thruster
+                            </Link>
+                            <Text>Tetris in clojurescript</Text>
+                            <Link href="https://github.com/julianjelfs/tetris">
+                                https://github.com/julianjelfs/tetris
+                            </Link>
+                        </div>
                     </Slide>
                     <Slide transition={["spin", "slide"]} bgColor="tertiary"
                         notes="So in summary, have a look at your situation and honestly ask yourself whether you have these issues.
@@ -649,18 +680,20 @@ its claims are true.">
                         <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
                             Questions?
                         </Heading>
-                        <Text>WAT? by Gary Bernhardt</Text>
-                        <Link href="https://www.destroyallsoftware.com/talks/wat">
-                            https://www.destroyallsoftware.com/talks/wat
-                        </Link>
-                        <Text>Harlem Shake XSS exploit</Text>
-                        <Link href="https://github.com/DinisCruz/XSS-Pocs/blob/master/pocs/dance-xss.js">
-                            https://github.com/DinisCruz/XSS-Pocs/blob/master/pocs/dance-xss.js
-                        </Link>
-                        <Text>My github account</Text>
-                        <Link href="https://github.com/julianjelfs">
-                            https://github.com/julianjelfs
-                        </Link>
+                        <div className="code-samples">
+                            <Text>WAT? by Gary Bernhardt</Text>
+                            <Link href="https://www.destroyallsoftware.com/talks/wat">
+                                https://www.destroyallsoftware.com/talks/wat
+                            </Link>
+                            <Text>Harlem Shake XSS exploit</Text>
+                            <Link href="https://github.com/DinisCruz/XSS-Pocs/blob/master/pocs/dance-xss.js">
+                                https://github.com/DinisCruz/XSS-Pocs/blob/master/pocs/dance-xss.js
+                            </Link>
+                            <Text>My github account</Text>
+                            <Link href="https://github.com/julianjelfs">
+                                https://github.com/julianjelfs
+                            </Link>
+                        </div>
                     </Slide>
                 </Deck>
             </Spectacle>
