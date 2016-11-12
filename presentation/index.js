@@ -249,7 +249,7 @@ So, just to be clear, I will be expressing some opinions here that you may not a
                         </BlockQuote>
                     </Slide>
                     <Slide transition={["zoom", "fade"]}
-                           notes="You might detect a pattern here. You might be sensing that I have some reservations about javascript and some reservations about angular. So this is the negative section of the talk where we bitch about things for a while, but I promise we will bring it back and then we will all be happy. Unless you are already happy in which case I am going to make you sad.  Let’s talk about the language, then let’s talk about angular a bit and then let’s see if there’s anything we can do about it"
+                           notes="You might detect a pattern here. You might be sensing that I have some reservations about javascript and some reservations about angular. So this is the negative section of the talk where we complain about things for a while, but I promise we will bring it back and then we will all be happy. Unless you are already happy in which case I am going to make you sad.  Let’s talk about the language, then let’s talk about angular a bit and then let’s see if there’s anything we can do about it"
                            bgColor="primary">
                         <Heading caps fit>I have some answers ...</Heading>
                         <List>
@@ -284,7 +284,7 @@ So, just to be clear, I will be expressing some opinions here that you may not a
                             <Appear fid="5">
                                 <ListItem>
                                     <Text size={1} textColor="black">
-                                        People who say "isomorphic" are smarter than me
+                                        People who say "isomorphic" must be smarter than me
                                     </Text>
                                 </ListItem>
                             </Appear>
@@ -303,7 +303,24 @@ So, just to be clear, I will be expressing some opinions here that you may not a
                         <Batman />
                     </Slide>
                     <Slide transition={["zoom", "fade"]}
-                           notes="These are the four horsemen of the javascript apocalypse.JS is a dynamic language. Everything is mutable, everything is nullable. Anything goes. This is the ultimate freedom and results in a wonderfully expressive, malleable and fun programming language. But this comes with a cost. "
+                           notes=
+"
+These are the four horsemen of the javascript apocalypse.
+<ul class='x-small'>
+    <li>
+        Everything is nullable but the language provides no good facilities to deal with optionality. So many runtime exceptions result from this.
+    </li>
+    <li>
+        Everything is mutable. Controlling state is very difficult because state can be changed by any actor at any time. This causes race conditions, unpredictability and generally makes our programs much harder to understand.
+    </li>
+    <li>
+        JS is dynamic which gives us ultimate freedom. I don't know if a property is there at all, I don't know when it might change and I have no idea what type it is. Wonderful, expressive maleable and fun. CHAOS.
+    </li>
+    <li>
+        JS the language does nothing at all to help us control side-effects in our code. We'll look at this more a bit later.
+    </li>
+</ul>
+"
                            bgImage={images.reaper.replace("/", "")}
                            bgDarken={0.5} >
                         <Heading caps fit>The four horsemen</Heading>
@@ -341,18 +358,17 @@ So, just to be clear, I will be expressing some opinions here that you may not a
                         <CodePane source={require('raw!../assets/badfunction')} lang="javascript" textSize={25} />
                     </Slide>
                     <Slide transition={["none"]}
-                           notes="<p class='small'>So there are such a lot of questions here. But so much of this is simply down to the language itself.
+                           notes="<p class='x-small'>So there are such a lot of questions here. But so much of this is simply down to the language itself.
                            Everything is nullable but if you put null checks everywhere that you should your code would be messy so
                            we ommit them and settle for runtime errors instead. Nulls are so evil that Tony Hoare famously called
-                           them his billion dollar mistake. That was 30 years ago - what’s the price tag now.
+                           them his billion dollar mistake. That was in 1965 - what’s the price tag now.
 
                             But it’s worse than that because not only is everything nullable, but also nothing is type checked.
                             So a property may not contain a value at all or it may contain a value that is the wrong type and
                             therefore does not behave the way you expect it to.
 
                             So what is the root of all evil? Is it money? Is it premature optimisation? I think it might be “this”.
-                            So I’m not a huge OO fan and I’m pretty suspicious of “this” in any language these days
-                            because `this` tends to mean side-effects.
+                            `this` tends to mean side-effects.
 
                             But in JS the problem is particularly acute because we can never really be sure what `this` means.
                             Has it been intentionally or accidentally manipulated by `call` or `apply` or `bind`?
@@ -407,8 +423,8 @@ In addition to that we all know that angular achieves this magical binding by co
                     </Slide>
                     <Slide transition={["zoom"]}
                            notes="
-                            <ul>
-                                <li>Linting - Good idea - this can catch a whole class of stupid errors and it is a no-brain good idea. Does it fix any of our big five problems? Not really. We have already done this and use eslint and tshint on the whole codebase all the time</li>
+                            <ul class='x-small'>
+                                <li>Linting - Good idea - this can catch a whole class of stupid errors and it is a no-brain good idea. It doesn't fix our problems but it helps us live with them? We have already done this and have strict linting incorporated into our build process.</li>
                                 <li>Reviews - Very important. So we moved to a more strict pull request workflow. This is good but not without problems. PR fatigue is a real thing. Opportunity cost of reviewing. Reviewers need to be paid.</li>
                                 <li>Unit tests - We have not far off 1000 js unit tests. They are far from a panacea. Tests are written in javascript and therefore have all the same problems as the code that they exercise. OO code typically requires a lot of mocking. A mock indicates a hidden side effect. All too easy to end up with unrealistic test data running through an incorrectly specified mock telling you everything is fine. </li>
                                 <li>Cooler framework - it's quite popular to bash angular, and it kind of deserves it, but is it really the problem?</li>
@@ -470,11 +486,11 @@ In addition to that we all know that angular achieves this magical binding by co
                         </Heading>
                     </Slide>
                     <Slide transition={["zoom"]}
-                           notes="How many people here use typescript? Typescript imposes a type system on top of javascript and therefore ticks some of my boxes. Typescript 2 has non-nullable types. It has union data types and many other nice features. It provides great tooling experience, serves to document the code and will catch a lot of issues before they happen. But it is designed to be a superset of javascript and therefore suffers from javascript’s limitations. It’s type system is useful for catching errors but it is intentionally not a sound type system i.e. it does not give guarantees of correctness. Most importantly it is an optional type system which requires annotation of the code - if you don’t actually use it, it isn’t going to help you. And of course - we still have `this`
+                           notes="<div class ='x-small'>How many people here use typescript? Typescript imposes a type system on top of javascript and therefore ticks some of my boxes. Typescript 2 has non-nullable types. It has union data types and many other nice features. It provides great tooling experience, serves to document the code and will catch a lot of issues before they happen. But it is designed to be a superset of javascript and therefore suffers from javascript’s limitations. It’s type system is useful for catching errors but it is intentionally not a sound type system i.e. it does not give guarantees of correctness. Most importantly it is an optional type system which requires annotation of the code - if you don’t actually use it, it isn’t going to help you. And of course - we still have `this`
 
 We currently use Typescript for all new client side code we write at TR. There is really no good reason not to use it in preference to JS I think. Some people grumble about it because it is a little more verbose, but that’s life. The big problem is to get people to actually make good use of it. It is important to build a cohesive description of your data model in TS before you try to use it or it will just be frustrating and your code will end up littered with `any` annotations. You could very plausibly opt for Flow instead which fills a pretty similar gap.
 
-So overall I see Typescript as being, very nice and improving all the time, but it is, by its very nature, compromised by JS. "
+So overall I see Typescript as being, very nice and improving all the time, but it is, by its very nature, compromised by JS. </div>"
                            bgColor="black">
                         <Heading margin={20}>
                             Typescript?
