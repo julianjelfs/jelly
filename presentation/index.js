@@ -355,7 +355,7 @@ These are the four horsemen of the javascript apocalypse.
                         <Heading caps fit size={1} textColor="white">
                             no comment ...
                         </Heading>
-                        <CodePane source={require('raw!../assets/badfunction')} lang="javascript" textSize={25} />
+                        <CodePane source={require('raw!../assets/badfunction')} lang="javascript" textSize={22} />
                     </Slide>
                     <Slide transition={["none"]}
                            notes="<p class='x-small'>So there are such a lot of questions here. But so much of this is simply down to the language itself.
@@ -374,7 +374,7 @@ These are the four horsemen of the javascript apocalypse.
                             Has it been intentionally or accidentally manipulated by `call` or `apply` or `bind`?
                             But even if we know exactly what `this` meant, it would still be evil. Why?</p>"
                            bgColor="primary">
-                        <CodePane source={require('raw!../assets/badfunctioncommented')} lang="javascript" textSize={25} />
+                        <CodePane source={require('raw!../assets/badfunctioncommented')} lang="javascript" textSize={22} />
                     </Slide>
                     <Slide transition={["slide"]}
                            bgImage={images.trollface}
@@ -655,6 +655,7 @@ Elm is not in the same category as angular. It is first and foremost a strongly 
                         <Appear><Text textColor="white">It's BDFL software</Text></Appear>
                         <Appear><Text textColor="white">It might disappear</Text></Appear>
                         <Appear><Text textColor="white">How will I recruit?</Text></Appear>
+                        <Appear><Text textColor="white">How will I live without type classes?</Text></Appear>
                     </Slide>
 {/*                    <Slide transition={["zoom"]}
                            bgColor="black">
