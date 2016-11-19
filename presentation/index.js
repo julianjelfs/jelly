@@ -505,7 +505,7 @@ So overall I see Typescript as being, very nice and improving all the time, but 
                             </Fill>
                             <Fill>
                                 <Appear fid="1">
-                                    <Heading size={4} caps textColor="white" bgColor="red" padding={30} margin={20}>
+                                    <Heading size={4} caps textColor="white" bgColor="orange" padding={30} margin={20}>
                                         Mutable
                                     </Heading>
                                 </Appear>
@@ -642,7 +642,7 @@ language that compiles to javascript.</div>
                            notes="
 Look at how badly angular shafted us. We didn’t hesitate to use angular because we trusted it and they have simply abandoned it. They have put a lot of effort into creating the illusion of migration. But the migration looks like this: take your angular 1 code, throw it away, write new code in angular 2. Why would I do that?
 
-Elm is not in the same category as angular. It is first and foremost a strongly typed pure functional language. There is a web development architecture that emerges from that and there there is a strong standard library to do most of the stuff you need to do (vdom, http, json etc). The language has very clear principles based on 40 years of functional programming experience. So is it more or less likely to be derailed than angular x? Certainly not more in my opinion.
+Elm is not in the same category as angular. It is first and foremost a strongly typed pure functional language. There is a web development architecture that emerges from that and there there is a strong standard library to do most of the stuff you need to do (vdom, http, json etc). The language has very clear principles based on 40 years of functional programming experience. So is it more or less likely to be derailed than angular x? Certainly not more in my opinion. The python paradox.
 "
                            bgImage={images.fear.replace("/", "")}
                            bgDarken={0.75}
