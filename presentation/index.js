@@ -317,7 +317,7 @@ These are the four horsemen of the javascript apocalypse.
         JS is dynamic which gives us ultimate freedom. I don't know if a property is there at all, I don't know when it might change and I have no idea what type it is. Wonderful, expressive maleable and fun. CHAOS.
     </li>
     <li>
-        JS the language does nothing at all to help us control side-effects in our code. We'll look at this more a bit later.
+        JS the language does nothing at all to help us control side-effects in our code. Explain what side-effects are. Quote - Side-effects are complexity and complexity is bugs and bugs are the devil - Kris Jenkins.
     </li>
 </ul>
 "
