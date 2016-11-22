@@ -109,7 +109,7 @@ export default class Presentation extends React.Component {
                             front end dev manager @ Travel Republic
                         </Text>
                     </Slide>
-                    <Slide
+{/*                    <Slide
                         transition={["slide"]}
                         bgColor="black"
                         bgDarken={0.75}
@@ -133,18 +133,15 @@ export default class Presentation extends React.Component {
                                 Yes - some spaghetti
                             </Text>
                         </Appear>
-                    </Slide>
+                    </Slide>*/}
                     <Slide bgDarken={0.6}
                            bgImage={images.angular}
                            transition={["slide"]}
                            bgColor="black"
                            notes="This leant itself well to a SPA website talking directly to the microservice layer so that is what we built using the angular js which was all the rage and didn’t seem like a bad thing. And so we successfully released a new mobile site and we had modern tooling and modern build process and everything was reasonably simple and we were very productive. Wouldn’t it be nice if we could just serve the desktop site off this code base too. Mobile first baby. So it grew and grew and grew. Wouldn’t it be nice if we could also serve a responsive site for a very different brand off the same code base? And it grew and it grew and it grew. Wouldn't it be nice if we could support travel agents and sales staff too.">
-                        <Heading size={2} caps fit textColor="primary" textFont="primary">
-                            Then what?
+                        <Heading size={2} caps fit textColor="#fff" textFont="primary">
+                            In the beginning ...
                         </Heading>
-                        <Text size={1} lineHeight={1} textColor="white">
-                            Can you guess?
-                        </Text>
                     </Slide>
 {/*                    <Slide transition={["zoom", "fade"]}
                            bgColor="black"
